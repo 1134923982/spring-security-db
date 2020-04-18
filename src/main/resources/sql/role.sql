@@ -8,7 +8,7 @@ Source Database       : spring_security
 
 Target Server Type    : MYSQL
 Target Server Version : 50719
-File Encoding         : 65001
+File Encoding  d       : 65001
 
 Date: 2020-04-18 15:26:00
 */
