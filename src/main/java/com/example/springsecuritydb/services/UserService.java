@@ -13,23 +13,13 @@ import org.springframework.stereotype.Service;
 public class UserService implements UserDetailsService {
     @Autowired
     UserMapper userMapper;
-//    @Autowired
-//    UserRepository userRepository;
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//        User user = userRepository.findUserByUsername(username);
         User user = userMapper.loadUserByUsername(username);
         if(user == null) {
             throw new UsernameNotFoundException("账号不存在!");
         }
-        System.out.println("------------"+user.toString()+"-------------------");
-
         user.setRoles(userMapper.getUserRolesByUid(user.getId()));
-        System.out.println("------------"+user.toString()+"-------------------");
-        System.out.println("------------"+user.isCredentialsNonExpired()+"-------------------");
-
         return user;
     }
-
 }
